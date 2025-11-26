@@ -424,6 +424,13 @@ def main():
                             progress_bar.empty()
                             st.balloons()
                             st.success("✅ Analysis complete! Check the Results Dashboard and AI Insights tabs.")
+                            
+                            # Display the analyzed video immediately
+                            if st.session_state.video_path and os.path.exists(st.session_state.video_path):
+                                st.markdown("---")
+                                st.subheader("🎥 Analyzed Video")
+                                st.video(st.session_state.video_path)
+                                st.info("💡 See the Results Dashboard tab for detailed metrics and charts.")
         
         with col2:
             st.subheader("ℹ️ Tips for Best Results")
